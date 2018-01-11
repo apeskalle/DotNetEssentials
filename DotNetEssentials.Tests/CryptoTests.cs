@@ -41,17 +41,6 @@ namespace DotNetEssentials.Tests
             decrypted = StringCipher.Decrypt(encypted, password);
             Assert.Equal(toEncrypt, decrypted);
             Assert.Throws<CryptographicException>(() => StringCipher.Decrypt(encypted, "wrongpassword"));
-
-            Logger.SetFilePath("foo/buz.txt");
-            Logger.SetTypes(LogMode.File);
-            Logger.SetLevels(LogLevel.Critical);
-            Logger.SetFileEntryEncryptionPassword("pw");
-
-            Logger.LogCritical("I'm critical");
-            Logger.LogCritical("Meeh");
-            Logger.LogCritical("Meeh");
-
-            Logger.DecryptLogEntries("foo/bar.txt");
         }
     }
 }
