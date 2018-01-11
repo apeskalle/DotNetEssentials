@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetEssentials", "DotNetEssentials\DotNetEssentials.csproj", "{A5773283-71AF-4515-8AC9-0FF8BF9787DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetEssentials.Tests", "DotNetEssentials.Tests\DotNetEssentials.Tests.csproj", "{AF25D250-6F69-4BF7-A21F-FA4874582DC8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A5773283-71AF-4515-8AC9-0FF8BF9787DF} = {A5773283-71AF-4515-8AC9-0FF8BF9787DF}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{A5773283-71AF-4515-8AC9-0FF8BF9787DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5773283-71AF-4515-8AC9-0FF8BF9787DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5773283-71AF-4515-8AC9-0FF8BF9787DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF25D250-6F69-4BF7-A21F-FA4874582DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF25D250-6F69-4BF7-A21F-FA4874582DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF25D250-6F69-4BF7-A21F-FA4874582DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF25D250-6F69-4BF7-A21F-FA4874582DC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
