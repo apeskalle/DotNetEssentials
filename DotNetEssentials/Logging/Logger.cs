@@ -172,7 +172,7 @@ namespace DotNetEssentials.Logging
 			}
 			if (messageLevel >= MinimumLevel)
 			{
-				Log(messageLevel, ex.Message, category);
+				Log(messageLevel, $"{ex.GetType()}: {ex.Message}", category);
 				return;
 			}
 		}
@@ -192,7 +192,7 @@ namespace DotNetEssentials.Logging
 			}
 			if (messageLevel >= MinimumLevel)
 			{
-				Log<T>(messageLevel, ex.Message);
+				Log<T>(messageLevel, $"{ex.GetType()}: {ex.Message}");
 				return;
 			}
 		}
@@ -212,7 +212,7 @@ namespace DotNetEssentials.Logging
 			}
 			if (messageLevel >= MinimumLevel)
 			{
-				Log(messageLevel, ex.Message, category);
+				Log(messageLevel, $"{ex.GetType()}: {ex.Message}", category);
 				return;
 			}
 		}
