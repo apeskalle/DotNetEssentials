@@ -6,6 +6,7 @@
     <Copyright>MIT</Copyright>
     <PackageProjectUrl />
     <RepositoryUrl>http://github.com/nopara73/DotNetEssentials</RepositoryUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
