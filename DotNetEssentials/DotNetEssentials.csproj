@@ -11,6 +11,8 @@
 
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+    <Authors>nopara73</Authors>
+    <Company>HiddenWallet</Company>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
