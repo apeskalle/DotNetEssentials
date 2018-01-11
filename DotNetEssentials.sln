@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetEssentials", "DotNetEssentials\DotNetEssentials.csproj", "{A5773283-71AF-4515-8AC9-0FF8BF9787DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetEssentials", "DotNetEssentials\DotNetEssentials.csproj", "{A5773283-71AF-4515-8AC9-0FF8BF9787DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetEssentials.Tests", "DotNetEssentials.Tests\DotNetEssentials.Tests.csproj", "{AF25D250-6F69-4BF7-A21F-FA4874582DC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetEssentials.Tests", "DotNetEssentials.Tests\DotNetEssentials.Tests.csproj", "{AF25D250-6F69-4BF7-A21F-FA4874582DC8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A5773283-71AF-4515-8AC9-0FF8BF9787DF} = {A5773283-71AF-4515-8AC9-0FF8BF9787DF}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{94FB22A7-537D-48E5-96C2-534248D18F59}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
 Global
