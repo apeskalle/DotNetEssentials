@@ -77,7 +77,7 @@ namespace DotNetEssentials.Logging
             var dir = Path.GetDirectoryName(destination);
             Directory.CreateDirectory(dir);
 
-            foreach(var entry in encrypted.Split(',', StringSplitOptions.RemoveEmptyEntries))
+            foreach(var entry in encrypted.Split(new char[]{','}, StringSplitOptions.RemoveEmptyEntries))
             {
                 var decryptedEntry = StringCipher.Decrypt(entry, FileEntryEncryptionPassword);
                 File.AppendAllText(destination, $"{decryptedEntry}{EntrySeparator}");
