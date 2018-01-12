@@ -1,5 +1,5 @@
 language: csharp
-dist: trusty
+solution: DotNetEssentials.sln
 mono: none
 dotnet: 2.0.3
 
@@ -9,10 +9,6 @@ matrix:
       dist: trusty     
     - os: osx
 
-install:
-  - dotnet restore
-
 script:
-  - dotnet build
-  - cd cd DotNetEssentials.Tests
+  - cd DotNetEssentials.Tests
   - dotnet test
