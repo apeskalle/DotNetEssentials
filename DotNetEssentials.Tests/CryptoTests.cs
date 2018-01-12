@@ -9,9 +9,16 @@ using Xunit;
 namespace DotNetEssentials.Tests
 {
 	[Collection("PrePostTestCollection")]
-	public class CryptoTests
-    {
-        [Fact]
+	public class CryptoTests : IClassFixture<SharedFixture>
+	{
+		private SharedFixture SharedFixture { get; }
+
+		public CryptoTests(SharedFixture fixture)
+		{
+			SharedFixture = fixture;
+		}
+
+		[Fact]
         public void CipherTests()
         {
             var toEncrypt = "hello";

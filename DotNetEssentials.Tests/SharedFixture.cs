@@ -5,21 +5,19 @@ using System.Text;
 
 namespace DotNetEssentials.Tests
 {
-	public class PrePostTestFixture : IDisposable
+	public class SharedFixture : IDisposable
 	{
-		public PrePostTestFixture()
+		public SharedFixture()
 		{
-			// ... initialize data in the test database ...
+			// Initialize tests...
+
 			Logger.SetMinimumLevel(LogLevel.Debug);
 			Logger.SetTypes(LogMode.Debug);
-
-			// download tor (based on system)
-			// run tor
 		}
 
 		public void Dispose()
 		{
-			// ... clean up test data from the database ...
+			// Cleanup tests...
 		}
 	}
 }
