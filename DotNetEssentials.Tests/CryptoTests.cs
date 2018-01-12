@@ -8,7 +8,8 @@ using Xunit;
 
 namespace DotNetEssentials.Tests
 {
-    public class CryptoTests
+	[Collection("PrePostTestCollection")]
+	public class CryptoTests
     {
         [Fact]
         public void CipherTests()
