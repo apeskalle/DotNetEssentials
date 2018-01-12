@@ -21,7 +21,6 @@ namespace DotNetEssentials.Tests
 		[Fact]
         public void CipherTests()
         {
-			Logger.LogTrace("test");
             var toEncrypt = "hello";
             var password = "password";
             var encypted = StringCipher.Encrypt(toEncrypt, password);
