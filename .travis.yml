@@ -9,7 +9,7 @@ matrix:
     - os: osx
 
 script:
-  - dotnet build
   - dotnet restore
+  - dotnet build
   - cd DotNetEssentials.Tests
   - dotnet test
