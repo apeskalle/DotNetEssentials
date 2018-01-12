@@ -11,7 +11,7 @@ namespace DotNetEssentials.Tests
 		{
 			// ... initialize data in the test database ...
 			Logger.SetMinimumLevel(LogLevel.Debug);
-			Logger.SetTypes(LogMode.Debug, LogMode.Console);
+			Logger.SetTypes(LogMode.Debug);
 
 			// download tor (based on system)
 			// run tor
