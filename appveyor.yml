@@ -4,6 +4,9 @@ configuration:
 
 before_build:
   - dotnet restore
+  
+build_script:
+  - dotnet build
 
 test_script:
   - dotnet test
