@@ -33,7 +33,7 @@ namespace DotNetEssentials.Logging
 			MinimumLevel = level;
 		}
 
-        public static void SetTypes(params LogMode[] modes)
+        public static void SetModes(params LogMode[] modes)
         {
             if (Modes.Count != 0)
             {
@@ -111,7 +111,10 @@ namespace DotNetEssentials.Logging
                 if (Modes.Contains(LogMode.File))
                 {
                     var dir = Path.GetDirectoryName(FilePath);
-                    Directory.CreateDirectory(dir);
+					if (dir != "")
+					{
+						Directory.CreateDirectory(dir);
+					}
 
                     if (FileEntryEncryptionPassword != null)
                     {

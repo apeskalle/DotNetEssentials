@@ -11,8 +11,9 @@ namespace DotNetEssentials.Tests
 		{
 			// Initialize tests...
 
-			Logger.SetMinimumLevel(LogLevel.Debug);
-			Logger.SetTypes(LogMode.Debug);
+			Logger.SetMinimumLevel(LogLevel.Trace);
+			Logger.SetModes(LogMode.Debug, LogMode.File);
+			Logger.SetFilePath("TestLogs.txt");
 		}
 
 		public void Dispose()

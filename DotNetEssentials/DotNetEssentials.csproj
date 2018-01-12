@@ -6,7 +6,7 @@
     <Copyright>MIT</Copyright>
     <PackageProjectUrl />
     <RepositoryUrl>http://github.com/nopara73/DotNetEssentials</RepositoryUrl>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
   </PropertyGroup>
 
   <PropertyGroup>
