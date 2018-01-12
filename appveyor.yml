@@ -1,8 +1,6 @@
-configuration: Release
+configuration:
+  - Debug
+  - Release
 
 before_build:
-  - nuget restore
-  
-build:
-  verbosity: minimal
-  publish_wap: true
+  - dotnet restore
