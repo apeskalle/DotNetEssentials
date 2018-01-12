@@ -1,7 +1,6 @@
 language: csharp
-solution: DotNetEssentials.sln
 mono: none
-dotnet: 2.0.3
+dotnet: 2.0.0
 
 matrix:
   include:
@@ -10,5 +9,7 @@ matrix:
     - os: osx
 
 script:
+  - dotnet build
+  - dotnet restore
   - cd DotNetEssentials.Tests
   - dotnet test
