@@ -10,6 +10,5 @@ matrix:
 
 script:
   - dotnet restore
-  - dotnet build
   - cd DotNetEssentials.Tests
   - dotnet test
