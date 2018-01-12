@@ -26,16 +26,18 @@ namespace DotNetEssentials.Logging
 
 		private static readonly object Lock = new object();
 
+		/// <summary>
+		/// MB
+		/// </summary>
+		public static long MaximumLogFileSize { get; private set; } = 10000; // approx 10 MB
+
 		#endregion
 
 		#region Initializers
 
-		public static void SetMinimumLevel(LogLevel level)
-        {
-			MinimumLevel = level;
-		}
+		public static void SetMinimumLevel(LogLevel level) => MinimumLevel = level;
 
-        public static void SetModes(params LogMode[] modes)
+		public static void SetModes(params LogMode[] modes)
         {
             if (Modes.Count != 0)
             {
@@ -57,11 +59,16 @@ namespace DotNetEssentials.Logging
 
         public static void SetFileEntryEncryptionPassword(string password) => FileEntryEncryptionPassword = password;
 
-        #endregion
+		/// <summary>
+		/// KB
+		/// </summary>
+		public static void SetMaximumLogFileSize(long sizeInKb) => MaximumLogFileSize = sizeInKb;
 
-        #region Methods
+		#endregion
 
-        public static void DecryptLogEntries(string destination)
+		#region Methods
+
+		public static void DecryptLogEntries(string destination)
         {
             var encrypted = File.ReadAllText(FilePath);
 
@@ -118,6 +125,15 @@ namespace DotNetEssentials.Logging
 						if (dir != "")
 						{
 							Directory.CreateDirectory(dir);
+						}
+
+						if(File.Exists(FilePath))
+						{
+							var sizeInBytes = new FileInfo(FilePath).Length;
+							if(sizeInBytes > 1000 * MaximumLogFileSize)
+							{
+								File.Delete(FilePath);
+							}
 						}
 
 						if (FileEntryEncryptionPassword != null)
