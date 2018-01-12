@@ -8,7 +8,6 @@ using Xunit;
 
 namespace DotNetEssentials.Tests
 {
-	[Collection("PrePostTestCollection")]
 	public class CryptoTests : IClassFixture<SharedFixture>
 	{
 		private SharedFixture SharedFixture { get; }
