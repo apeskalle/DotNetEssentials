@@ -24,6 +24,8 @@ namespace DotNetEssentials.Logging
 
         private static long _logerFailed = Interlocked.Exchange(ref _logerFailed, 0);
 
+		private static readonly object Lock = new object();
+
 		#endregion
 
 		#region Initializers
@@ -98,37 +100,40 @@ namespace DotNetEssentials.Logging
 
                 var finalLogMessage = $"{level.ToString().ToUpperInvariant()} {category} {DateTimeOffset.UtcNow}\n{message}{EntrySeparator}";
 
-                if(Modes.Contains(LogMode.Console))
-                {
-                    Console.Write(finalLogMessage);
-                }
-
-                if (Modes.Contains(LogMode.Console))
-                {
-                    Debug.Write(finalLogMessage);
-                }
-
-                if (Modes.Contains(LogMode.File))
-                {
-                    var dir = Path.GetDirectoryName(FilePath);
-					if (dir != "")
+				lock (Lock)
+				{
+					if (Modes.Contains(LogMode.Console))
 					{
-						Directory.CreateDirectory(dir);
+						Console.Write(finalLogMessage);
 					}
 
-                    if (FileEntryEncryptionPassword != null)
-                    {
-                        // take the separator down and add a comma (not base64)
-                        var replacedSeparatorWithCommaMessage = finalLogMessage.Substring(0, finalLogMessage.Length - EntrySeparator.Length);
-                        var encryptedLogMessage = StringCipher.Encrypt(replacedSeparatorWithCommaMessage, FileEntryEncryptionPassword) + ',';
+					if (Modes.Contains(LogMode.Console))
+					{
+						Debug.Write(finalLogMessage);
+					}
 
-                        File.AppendAllText(FilePath, encryptedLogMessage);
-                    }
-                    else
-                    {                        
-                        File.AppendAllText(FilePath, finalLogMessage);
-                    }
-                }
+					if (Modes.Contains(LogMode.File))
+					{
+						var dir = Path.GetDirectoryName(FilePath);
+						if (dir != "")
+						{
+							Directory.CreateDirectory(dir);
+						}
+
+						if (FileEntryEncryptionPassword != null)
+						{
+							// take the separator down and add a comma (not base64)
+							var replacedSeparatorWithCommaMessage = finalLogMessage.Substring(0, finalLogMessage.Length - EntrySeparator.Length);
+							var encryptedLogMessage = StringCipher.Encrypt(replacedSeparatorWithCommaMessage, FileEntryEncryptionPassword) + ',';
+
+							File.AppendAllText(FilePath, encryptedLogMessage);
+						}
+						else
+						{
+							File.AppendAllText(FilePath, finalLogMessage);
+						}
+					}
+				}
             }
             catch(Exception ex)
             {
