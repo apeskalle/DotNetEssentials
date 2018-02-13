@@ -25,4 +25,8 @@
     <NoWarn>1701;1702;1705;CS1591</NoWarn>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Nito.AsyncEx" Version="4.0.1" />
+  </ItemGroup>
+
 </Project>
